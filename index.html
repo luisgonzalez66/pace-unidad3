@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>PACE UACh · Mi ruta de matemática</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="top-accent" aria-hidden="true"></div>
+<div class="app" id="app">
+  <header class="app-top">
+    <div class="brand"><span class="brand-mark" aria-hidden="true">◇</span><div><strong>PACE <span>· UACh</span></strong><small>NIVELACIÓN MATEMÁTICA</small></div></div>
+    <span id="syncIndicator" class="sync-chip pending" aria-live="polite">Conectando…</span>
+  </header>
+  <nav id="breadcrumbs" class="breadcrumbs" aria-label="Ubicación actual"></nav>
+  <main>
+    <section id="homeView" class="view">
+      <section class="welcome" aria-label="Inicio de la plataforma">
+        <div class="welcome-copy">
+          <span class="hero-kicker"><span aria-hidden="true">✦</span> TU ESPACIO PACE</span>
+          <h1>Aprende a<br><em>tu ritmo.</em></h1>
+          <p>Elige una unidad y comienza.</p>
+          <div class="resume-inline"><span class="resume-small">RETOMA TU RUTA</span><strong id="resumeTitle">Enteros en acción</strong><small id="resumeDescription">Unidad I · Números</small><button type="button" id="resumeBtn" class="hero-button">Continuar <span aria-hidden="true">↗</span></button></div>
+        </div>
+        <div class="welcome-progress" aria-label="Avance en los contenidos disponibles">
+          <span class="orbit-mark" aria-hidden="true">ℤ</span>
+          <div class="progress-disc" id="homeDisc"><div><strong id="homePct">0%</strong><span>DE AVANCE</span></div></div>
+          <strong class="progress-unit">Unidades disponibles</strong>
+          <span id="homeCount" class="progress-count">0 de estaciones completadas</span>
+          <div class="track" aria-hidden="true"><span id="homeFill" style="width:0%"></span></div>
+        </div>
+      </section>
+      <div class="section-heading"><div><span class="eyebrow">TU RECORRIDO</span><h2>Unidades de aprendizaje</h2></div><p>Unidades disponibles</p></div>
+      <div class="units-grid" id="unitsGrid"></div>
+      <div class="prototype-note"><span aria-hidden="true">✳</span> Curso de nivelación · aprende a tu ritmo.</div>
+    </section>
+
+    <section id="mapView" class="view hidden">
+      <div class="map-header"><button type="button" class="text-back" id="backHome">← Todas las unidades</button><span class="map-unit-tag" id="mapUnitLabel">UNIDAD I</span></div>
+      <header class="map-topline"><div><span class="eyebrow" id="mapEyebrow">MAPA DE APRENDIZAJE</span><h1 id="mapTitle">Números<span>.</span></h1><p id="mapSubtitle">Elige una estación.</p></div>
+        <section class="map-summary" id="mapSummary" aria-label="Avance de la unidad"><strong id="mapPercent">0%</strong><span>de avance</span><div class="track" aria-hidden="true"><span id="mapFill" style="width:0%"></span></div><small id="mapCount">0 de estaciones completadas</small></section></header>
+      <div class="map-legend" id="mapLegend"><span><i class="status-dot green"></i> Completado</span><span><i class="status-dot cyan"></i> En progreso</span><span><i class="status-dot gray"></i> Pendiente</span></div>
+      <div class="map-section-label"><span class="eyebrow">ELIGE UN BLOQUE</span><span class="map-section-count">bloques · estaciones</span></div>
+      <div class="group-tabs" id="mapGroupTabs" aria-label="Bloques temáticos de la unidad"></div>
+      <section id="route" class="route" aria-label="Estaciones del bloque seleccionado"></section>
+      <section class="map-finish" id="mapFinish"><div class="finish-icon" aria-hidden="true">✧</div><div><span class="eyebrow">META FINAL</span><h2 id="finishTitle">Desafío integrador</h2><p id="finishDescription">Se incorporará con los materiales definitivos.</p></div><strong id="finishCounter">0/12</strong></section>
+      <button type="button" class="bottom-back" id="bottomHome">← Volver a las unidades</button>
+    </section>
+
+    <section id="stationView" class="view hidden">
+      <div class="station-nav"><button type="button" class="text-back" id="backMap">← Volver al mapa</button><span class="map-unit-tag" id="stationBlock">BLOQUE 01</span></div>
+      <header class="station-head"><div class="station-no" id="stationNo">01</div><div class="station-main-title"><span class="eyebrow">ESTACIÓN</span><h1 id="stationTitle"></h1><p id="stationSub"></p></div><strong class="station-pct" id="stationPct">0%</strong></header>
+      <div class="station-progress"><span id="stationCount">0 actividades completadas</span><div class="track"><span id="stationFill"></span></div></div>
+      <div class="tabs" id="stationTabs" role="tablist" aria-label="Etapas de la estación">
+        <button class="tab active" id="tab-learn" data-tab="learn" role="tab" type="button" aria-selected="true">01 · Aprende <span id="learnTick"></span></button>
+        <button class="tab" id="tab-practice" data-tab="practice" role="tab" type="button" aria-selected="false">02 · Practica <span id="practiceTick"></span></button>
+        <button class="tab" id="tab-check" data-tab="check" role="tab" type="button" aria-selected="false">03 · Aplica <span id="checkTick"></span></button>
+      </div>
+      <div class="learning-panel" id="stationContent"></div>
+      <div class="station-actions"><button class="primary-btn" type="button" id="returnToMap">← Guardar y volver al mapa</button><p id="stationFeedback" role="status" aria-live="polite"></p></div>
+    </section>
+  </main>
+  <footer class="footer"><span>PACE · Universidad Austral de Chile</span><span id="trackingDetails" aria-live="polite">SCORM v5 · Prototipo</span></footer>
+</div>
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']],processEscapes:true},svg:{fontCache:'local'},options:{ignoreHtmlClass:'tex2jax_ignore',skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script>
+<script defer src="mathjax/tex-svg.js"></script>
+<script src="data.js"></script>
+<script src="contract.js"></script>
+<script src="content_text.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
