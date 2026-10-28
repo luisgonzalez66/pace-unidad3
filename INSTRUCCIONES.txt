@@ -1,0 +1,1 @@
+Abre index.html después de extraer el ZIP completo. No lo abras dentro del archivo comprimido. En esta versión el progreso se guarda solo localmente, cuando el navegador lo permite. SiveducMD necesita el ZIP de SCORM_INDIVIDUAL.

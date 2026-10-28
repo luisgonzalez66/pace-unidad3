@@ -1,0 +1,1 @@
+window.PACEContract=Object.freeze({"maxGroups":15,"maxStations":40,"maxCourseStations":80,"maxPractice":20,"maxOptions":8,"maxMedia":25,"maxIdLength":44,"maxTextLength":39999,"maxResourceBytes":36700160,"maxArchiveBytes":314572800,"maxArchiveEntries":2200,"maxScormBytes":104857600,"maxSuspendBytes":4096});
